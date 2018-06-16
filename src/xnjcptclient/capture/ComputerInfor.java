@@ -1,6 +1,8 @@
 package xnjcptclient.capture;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -14,7 +16,7 @@ public class ComputerInfor {
 	private final String URLNET = "http://114.215.196.150:8004/xnjcpt/receive/receive_getNetInfor";
 	private static String ip = null;
 
-	// 鑾峰緱涓绘満鐨勫熀鏈俊鎭�
+	// 获得主机信息
 	public void getComputerInfor() {
 		Runtime run = Runtime.getRuntime();
 		String command = "cat /etc/hostname";
@@ -34,7 +36,7 @@ public class ComputerInfor {
 		}
 	}
 
-	// 鑾峰緱涓绘満cpu鍩烘湰淇℃伅
+	// 获得cpu信息
 	public void getCPUInfo() throws IOException {
 		String ipv4 = this.getIp();
 		// 涓婚鍗曚綅MHZ 缂撳瓨澶у皬KB
@@ -74,7 +76,7 @@ public class ComputerInfor {
 		SendData.post(URLCPU, sendD);
 	}
 
-	// 鑾峰緱涓绘満鍐呭瓨淇℃伅
+	// 获得内存信息
 	public void getMemoryInfo() throws IOException {
 		String ipv4 = this.getIp();
 		// 鍗曚綅kb
@@ -98,7 +100,7 @@ public class ComputerInfor {
 		SendData.post(URLMEMORY, sendD);
 	}
 
-	// 鑾峰緱纾佺洏淇℃伅
+	// 获得硬盘信息
 	public void getDiskInfo() throws IOException {
 		String ipv4 = this.getIp();
 		String disk_size = null;
@@ -119,7 +121,7 @@ public class ComputerInfor {
 		SendData.post(URLDISK, sendD);
 	}
 
-	// 鑾峰緱缃戠粶淇℃伅
+	// 获得网络信息
 	public void getNetInfo() throws IOException {
 		String ipv4 = this.getIp();
 		String net_mac = null, net_ipv6 = null;
@@ -143,11 +145,12 @@ public class ComputerInfor {
 		SendData.post(URLNET, sendD);
 	}
 
-	// 鑾峰緱涓绘満鐨刬p鍦板潃
+	// 获得ip地址
 	public static String getIp() throws IOException {
 		return ip;
 	}
 
+	// 初始化ip
 	public static void getIPByCurl() throws IOException {
 		String ipv4 = "";
 		Process processIP;
@@ -161,5 +164,6 @@ public class ComputerInfor {
 			ipv4 = line;
 		}
 		ip = ipv4;
+		br.close();
 	}
 }
