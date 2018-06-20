@@ -9,7 +9,7 @@ import java.util.Date;
 //瀹炴椂鑾峰彇io鐘舵��
 public class IOStatusRunnable implements Runnable {
 
-	private final String URL = "http://114.215.196.150:8004/xnjcpt/receive/receive_getIoStateInfor";
+	private final String URL = "/xnjcpt/receive/receive_getIoStateInfor";
 
 	@Override
 	public void run() {

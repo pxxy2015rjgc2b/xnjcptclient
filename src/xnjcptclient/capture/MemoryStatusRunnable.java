@@ -10,7 +10,7 @@ import java.util.Date;
 //获得实时内存
 public class MemoryStatusRunnable implements Runnable {
 
-	private final String URL = "http://114.215.196.150:8004/xnjcpt/receive/receive_getMemoryStateInfor";
+	private final String URL = "/xnjcpt/receive/receive_getMemoryStateInfor";
 
 	@Override
 	public void run() {

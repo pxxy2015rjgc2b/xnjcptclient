@@ -10,7 +10,7 @@ import xnjcptclient.domain.ProgressDTO;
 
 public class ProgressRunnable implements Runnable {
 
-	private final String URL = "http://114.215.196.150:8004/xnjcpt/receive/receive_getProgressInfor";
+	private final String URL = "/xnjcpt/receive/receive_getProgressInfor";
 
 	@Override
 	public void run() {

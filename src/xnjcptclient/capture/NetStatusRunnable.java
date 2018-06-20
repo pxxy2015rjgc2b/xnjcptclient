@@ -10,7 +10,7 @@ import java.util.Date;
 //瀹炴椂涓婁紶缃戠粶
 public class NetStatusRunnable implements Runnable {
 
-	private final String URL = "http://114.215.196.150:8004/xnjcpt/receive/receive_getNetStateInfor";
+	private final String URL = "/xnjcpt/receive/receive_getNetStateInfor";
 	private final int FLAGCURR = 4;
 
 	@Override

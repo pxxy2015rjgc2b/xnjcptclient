@@ -1,19 +1,17 @@
 package xnjcptclient.capture;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class ComputerInfor {
 	private Process processHost;
 	private String hostname;
-	private final String URLCOMPUTER = "http://114.215.196.150:8004/xnjcpt/receive/receive_getComputerInfor";
-	private final String URLCPU = "http://114.215.196.150:8004/xnjcpt/receive/receive_getCpuInfo";
-	private final String URLMEMORY = "http://114.215.196.150:8004/xnjcpt/receive/receive_getMemoryInfor";
-	private final String URLDISK = "http://114.215.196.150:8004/xnjcpt/receive/receive_getDiskInfor";
-	private final String URLNET = "http://114.215.196.150:8004/xnjcpt/receive/receive_getNetInfor";
+	private final String URLCOMPUTER = "/xnjcpt/receive/receive_getComputerInfor";
+	private final String URLCPU = "/xnjcpt/receive/receive_getCpuInfo";
+	private final String URLMEMORY = "/xnjcpt/receive/receive_getMemoryInfor";
+	private final String URLDISK = "/xnjcpt/receive/receive_getDiskInfor";
+	private final String URLNET = "/xnjcpt/receive/receive_getNetInfor";
 	private static String ip = null;
 
 	// 获得主机信息

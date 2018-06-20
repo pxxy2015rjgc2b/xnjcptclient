@@ -9,7 +9,7 @@ import java.util.Date;
 //实时上传硬盘
 public class DiskStatusRunnable implements Runnable {
 
-	private final String URL = "http://114.215.196.150:8004/xnjcpt/receive/receive_getDiskStateInfor";
+	private final String URL = "/xnjcpt/receive/receive_getDiskStateInfor";
 
 	@Override
 	public void run() {

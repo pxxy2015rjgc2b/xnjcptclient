@@ -10,6 +10,7 @@ import java.net.URL;
 public class SendData {
 
 	public static void post(String strURL, String sendD) throws IOException {
+		strURL = "http://111.230.235.98:8080" + strURL;
 		URL url = new URL(strURL);// 创建连接
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 		connection.setDoOutput(true);

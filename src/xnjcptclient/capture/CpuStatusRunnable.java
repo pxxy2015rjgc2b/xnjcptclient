@@ -9,7 +9,7 @@ import java.util.Date;
 
 //瀹炴椂鏇存柊cpu鐘舵�佽〃
 public class CpuStatusRunnable implements Runnable {
-	String URL = "http://114.215.196.150:8004/xnjcpt/receive/receive_getCpuStateInfor";
+	String URL = "/xnjcpt/receive/receive_getCpuStateInfor";
 
 	@Override
 	public void run() {
