@@ -7,6 +7,7 @@ import xnjcptclient.capture.CpuStatusRunnable;
 import xnjcptclient.capture.DiskStatusRunnable;
 import xnjcptclient.capture.IOStatusRunnable;
 import xnjcptclient.capture.MemoryStatusRunnable;
+import xnjcptclient.capture.MysqlStatusRunnable;
 import xnjcptclient.capture.NetStatusRunnable;
 import xnjcptclient.capture.ProgressRunnable;
 import xnjcptclient.socket.xnjcptServer;
@@ -39,6 +40,9 @@ public class StartAction {
 		// 实时上传进程信息
 		Thread threadProgress = new Thread(new ProgressRunnable());
 		threadProgress.start();
+		// 实时上传mysql
+		Thread threadMysql = new Thread(new MysqlStatusRunnable());
+		threadMysql.start();
 		// 开启接收服务
 		xnjcptServer xnjcptServer = new xnjcptServer();
 		xnjcptServer.startService();
