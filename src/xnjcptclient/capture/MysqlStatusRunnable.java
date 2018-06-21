@@ -18,9 +18,9 @@ public class MysqlStatusRunnable implements Runnable {
 		String statusCommand = "mysqladmin -u root --host=127.0.0.1 --password=root extended-status";// 获取mysql状态
 		try {
 			String ipv4 = ComputerInfor.getIp();
-			long currTime = System.currentTimeMillis();
-			String time = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date(currTime));
 			while (true) {
+				long currTime = System.currentTimeMillis();
+				String time = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date(currTime));
 				Process process = Runtime.getRuntime().exec(openCommand);
 				BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
 				String line = br.readLine();
