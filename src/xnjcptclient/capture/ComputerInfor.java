@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import com.google.gson.Gson;
+
+import xnjcptclient.domain.ComputerIpDTO;
+
 public class ComputerInfor {
 	private Process processHost;
 	private String hostname;
@@ -153,15 +157,18 @@ public class ComputerInfor {
 		String ipv4 = "";
 		Process processIP;
 		Runtime run = Runtime.getRuntime();
-		String command = "curl ifconfig.me";
+		String command = "curl ipinfo.io";
 		int flag = 0;
 		processIP = run.exec(command);
 		BufferedReader br = new BufferedReader(new InputStreamReader(processIP.getInputStream()));
 		String line = null;
+		StringBuilder sb = new StringBuilder();
 		while ((line = br.readLine()) != null) {
-			ipv4 = line;
+			sb.append(line);
 		}
-		ip = ipv4;
+		Gson gson = new Gson();
+		ComputerIpDTO c = gson.fromJson(sb.toString(), ComputerIpDTO.class);
+		ip = c.getIp();
 		br.close();
 	}
 }
