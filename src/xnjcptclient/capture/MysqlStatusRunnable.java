@@ -20,7 +20,7 @@ public class MysqlStatusRunnable implements Runnable {
 			String ipv4 = ComputerInfor.getIp();
 			while (true) {
 				long currTime = System.currentTimeMillis();
-				String time = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date(currTime));
+				String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(currTime));
 				Process process = Runtime.getRuntime().exec(openCommand);
 				BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
 				String line = br.readLine();
@@ -77,8 +77,8 @@ public class MysqlStatusRunnable implements Runnable {
 							.floatValue();
 					float tps = new BigDecimal((((float) com_commit2 - (float) com_commit1)
 							+ ((float) com_rollback2 - (float) com_rollback1)) / 10).setScale(3, 4).floatValue();
-					String sendD = "xnjcpt_computer.computer_ip=" + ipv4 + "&xnjcpt_mysql.mysql_qps=" + qps
-							+ "&xnjcpt_mysql.mysql_tps=" + tps + "&xnjcpt_mysql.mysql_time=" + time;
+					String sendD = "xnjcpt_computer.computer_ip=" + ipv4 + "&xnjcpt_mysql.mysql_qps=" + Math.abs(qps)
+							+ "&xnjcpt_mysql.mysql_tps=" + Math.abs(tps) + "&xnjcpt_mysql.mysql_time=" + time;
 					System.out.println(sendD);
 					SendData.post(statusURL, sendD);
 				}
